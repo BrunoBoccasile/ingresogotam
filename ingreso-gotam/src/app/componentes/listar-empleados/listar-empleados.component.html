@@ -1,0 +1,46 @@
+<app-spinner [ngClass]="claseSpinner"></app-spinner>
+
+<input type="number" [(ngModel)]="idEmpleado">
+<button (click)="buscarEmpleado()">buscar</button>
+
+@if (empleados)
+{
+<div class="card my-4">
+    <div class="card-body">
+        <h5 class="card-title">Administradores</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Listado</h6>
+
+
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">DNI</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Fecha de nacimiento</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Desarrollador</th>
+                        <th scope="col">Area</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    @for (empleado of empleados; track $index){
+                    @if(empleado.id)
+                    {
+                    <tr>
+                        <th scope="row">{{empleado.dni}}</th>
+                        <td>{{empleado.nombre}}</td>
+                        <td>{{empleado.nacimiento | dateFormatPipe}}</td>
+                        <td>{{empleado.descripcion}}</td>
+                        <td>{{empleado.desarrollador}}</td>
+                        <td>{{empleado.id_area}}</td>
+                    </tr>
+                    }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+}

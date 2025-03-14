@@ -1,0 +1,13 @@
+.btn-informacion{
+    cursor: pointer;
+}
+
+.nav-link{
+    cursor: pointer;
+}
+
+.container-aplicacion {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
